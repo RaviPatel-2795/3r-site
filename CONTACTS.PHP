@@ -1,0 +1,151 @@
+﻿<html lang="en">
+    
+<head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
+	
+	<meta name="author" content="3R Telecom Ltd"/>
+	<meta name="description" content="3R Telecom and all of its services are the result of continual feedback from our customers. Find out how we help businesses grow.">
+	<meta name="keywords" content="EPoS Installation, EPoS Services, 3R Telecom, Contact, EPoS Info," />
+	
+    <title>EPOS Support Form | 3R Telecom</title>
+
+    <!-- Load css styles --> 
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.cslider.css" /> <!-- only used for media queries -->
+	<script type="text/javascript" src="js/modernizr.custom.js"></script>
+	
+ 	<!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ati144.png" alt="Image of Apple Touch icon.">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ati114.png" alt="Image of Apple Touch icon." />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ati72.png" alt="Image of Apple Touch icon." >
+    <link rel="apple-touch-icon-precomposed" href="images/ati57.png" alt="Image of Apple Touch icon." >
+    <link rel="shortcut icon" href="images/favicon.ico" alt="3R Telecom Favicon." >
+</head>
+  
+<body>
+	<div class="backgroundimgEposContactForm">
+		<div id="EPOS-navbar">
+			<div id="EPOS-navbar-inner">
+				<div class="EposContactFormBrandingLogos">
+					<img src="images/3r_logo.svg" alt="3R Logo" width="60" height="60"><div class="vl"></div>
+					<img src="images/octepos_logo.svg" alt="Octepos Logo" width="" height="60"><div class="vl"></div>
+					<img src="images/cessoftware_logo.svg" alt="CES Software Logo" width="170" height="60">
+				</div>
+				<div class="EposContactFormBrandingContactInfo">
+					<p>HELPLINE: <b>01992 574 650</b></p>
+				</div>
+			</div>
+		</div>
+
+		<div id= "maincon" class = "maincontranscon">
+			<div class="EPOSContactForm">
+				<form action="php/epos_contact_form_submit_licenced" name="EposContactForm" method="post" onsubmit="return ValidateEposContactForm();" class="dark-matterEposForm">
+					<input type="hidden" name="submitted" value="true"/>
+					<?php
+					    $ipaddress = getenv(REMOTE_ADDR);
+
+						if (isset($_GET['id'])) {
+							$event_id = $_GET['id'];}
+						
+						if (isset($_GET['name'])) {
+							$event_name = $_GET['name'];}
+
+						if (isset($_GET['ID'])) {
+							$event_id = $_GET['ID'];}
+						
+						if (isset($_GET['NAME'])) {
+							$event_name = $_GET['NAME'];}
+					?>
+
+					<!-- <h3 style="margin-bottom: 25px;">TeamViewer Download</h3>
+					<a class="NEWbuttonEposContactForm" href = "./downloads/TeamViewer_Host_3R.exe">Download TeamViewer</a> -->
+
+					<h3 style="margin-top: -5px;">Support Form</h3>
+
+					<label>
+						<p>Enter Full Name: <!-- <span id="err1" class="err">Please enter your name.</span> --></p>
+						<input id="fname" type="text" name="fname" placeholder="John Doe"/>
+					</label>
+					
+					<label>
+						<p>Enter Full Business Name: <!-- <span id="err2" class="err">Please enter your business name.</span> --></p>
+						<input id="bname" type="text" name="bname" placeholder="John Doe Traders"/>
+					</label>
+					
+					<label>
+						<p>Enter Contact Number: <!-- <span id="err3" class="err">Please enter your phone number.</span> --></p>
+						<input id="pphone" type="text" name="pphone" placeholder="+44 1992 574 650"/>
+					</label>
+
+					<label>
+						<p>Enter Email Address:</p>
+						<input id="email" type="email" name="email" placeholder="johndoe@domain.com"/>
+					</label>
+
+					<label id="largeQueryEposForm">
+						<p>Type of Query:* <span id="err4" class="err">Please select the type of query.</span></p>
+						<select name="querytype" id="querytype">
+							<option value="Select">Select An Option</option>
+							<option value="Product Creation">Product Creation</option>
+							<option value="Mix and Match Offers">Mix and Match Offers</option>
+							<option value="Screen Buttons Change">Screen Buttons Change</option>
+							<option value="Reporting Queries">Reporting Queries</option> 
+							<option value="Hardware Failure">Hardware Failure</option>
+							<option value="Mobile Vouchers">Mobile Vouchers</option>
+							<option value="Other Queries">Other Queries</option>
+				        </select>
+				    </label>
+				    
+					<label id="newFieldEmail">
+						<p>Enter Email Address:* <span id="err5" class="err">Please leave this field blank.</span></p>
+						<input id="newEmail" type="text" name="newEmail" placeholder="johndoe@domain.com"/>
+					</label>
+
+					<label id="largeTextAreaEposForm">
+						<p>How Can We Help? <!-- <span id="err6" class="err">Please provide a detailed description.</span> --></p>
+						<textarea id="message" name="message" placeholder="Your requirements"></textarea>
+					</label>
+
+					<div>
+						<input name="Submit" class="button" type="submit" value="Submit"/> 
+					</div>
+
+					<div id="newFieldEmail">
+						<p>IP Address: </p><span id="ipAddress"><input type="text" name="ipaddress" value="<?php echo($ipaddress); ?>" readonly="readonly"/></span>
+						<p>Licence Number: </p><span id="licenceNumber"><input type="text" id="donglenumber" name="donglenumber" value="<?php echo($event_id); ?>" readonly="readonly"/></span>
+						<p>Licence Name: </p><span id="licenceName"><input type="text" id="businessname" name="businessname" value="<?php echo($event_name); ?>" readonly="readonly"/></span>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id = "EPOSForm-container2" class="fixedBottom">
+			<div id = "EPOSForm-footcon2">
+				<a style="color: #fff;" class = "disabled" style = "padding-right:5px;">IP Number: <span><?php echo($ipaddress); ?></span></a> |
+				<a style="color: #fff;" class = "disabled" style = "padding-right:5px;">Licence Number: <span><?php echo($event_id); ?></span></a> |
+				<a style="color: #fff;" class = "disabled" style = "padding-right:5px;">Licence Name: <span><?php echo($event_name); ?></span></a> |
+				<a class = "disabled" style = "padding-right:5px;">Copyright © 3R Telecom 2001, All Rights Reserved</a> 
+			</div>
+		</div>
+	</div>
+
+	<a class="download-btn" href = "./downloads/TeamViewer_Host_3R.exe">Download TeamViewer</a>
+
+    <!-- ScrollUp button end -->
+    <!-- Include javascript -->
+	<script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.mixitup.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="js/jquery.cslider.js"></script>
+    <script type="text/javascript" src="js/jquery.placeholder.js"></script>
+    <script src="js/index.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/scripting.js"></script>	   
+	<script src="js/epos-contact-form-validation.js"></script>	   
+
+</body>
+
+</html>
